@@ -1,0 +1,36 @@
+.menu {
+  /* Contêiner principal do menu */
+  display: flex; /* Usa flexbox para posicionar os itens lado a lado */
+  align-items: center; /* Centraliza verticalmente os itens */
+  justify-content: center; /* Centraliza horizontalmente o conjunto de itens */
+  gap: 1.6rem; /* Espaçamento entre cada link do menu */
+  padding-top: 3.2rem; /* Espaçamento interno superior (afasta o menu do topo) */
+}
+
+.menuLink {
+  /* Estilo aplicado a cada link do menu */
+  display: inline-flex; /* Usa flexbox sem quebrar linha — ideal para botões/link em linha */
+  align-items: center; /* Centraliza o conteúdo horizontalmente (ícone e texto) */
+  justify-content: center; /* Centraliza o conteúdo verticalmente */
+  text-decoration: none; /* Remove o sublinhado padrão dos links */
+  background: var(
+    --primary
+  ); /* Define a cor de fundo usando a variável de cor primária */
+  color: var(
+    --text-over-primary
+  ); /* Define a cor do texto sobre o fundo primário */
+  transition: all 0.1s ease-in-out; /* Suaviza a mudança visual durante o hover */
+  padding: 1.2rem; /* Espaçamento interno (aumenta a área clicável do botão) */
+  border-radius: 0.8rem; /* Bordas arredondadas — deixa o visual mais suave */
+}
+
+.menuLink:hover {
+  /* Efeito aplicado ao passar o mouse no link */
+  filter: brightness(80%); /* Escurece levemente o botão (efeito de hover) */
+}
+
+.menuLink svg {
+  /* Estilo aplicado aos ícones SVG dentro dos links */
+  width: 2.4rem; /* Define a largura do ícone */
+  height: 2.4rem; /* Define a altura do ícone */
+}

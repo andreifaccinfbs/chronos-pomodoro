@@ -1,0 +1,39 @@
+:root {
+  /* Define variáveis globais de CSS (disponíveis em todo o documento) */
+
+  --gray-100: #e6e9f0; /* Tom mais claro de cinza */
+  --gray-200: #cdd3e1; /* Tom claro de cinza */
+  --gray-300: #aab3cc; /* Tom médio-claro de cinza */
+  --gray-400: #555f7d; /* Tom médio-escuro de cinza */
+  --gray-500: #454f6a; /* Tom escuro de cinza */
+  --gray-600: #363d56; /* Cinza ainda mais escuro */
+  --gray-700: #272f43; /* Cinza profundo */
+  --gray-800: #181f2e; /* Cinza quase preto */
+  --gray-900: #0a0f1a; /* Tom mais escuro de cinza (quase preto total) */
+
+  --primary-light: #4de7b7; /* Versão clara da cor primária */
+  --primary: #0da170; /* Cor primária principal (sobrescreve o “pink” anterior) */
+  --primary-dark: #065f46; /* Versão escura da cor primária */
+
+  --link-color: #10b981; /* Cor padrão dos links */
+  --link-hover: #0b8a60; /* Cor dos links quando o mouse passa por cima */
+
+  --success: #22c55e; /* Cor para estados de sucesso */
+  --warning: #eab308; /* Cor para alertas/avisos */
+  --error: #991b1b; /* Cor para erros */
+  --info: #0ea5e9; /* Cor para mensagens informativas */
+
+  --text-over-primary: #0a0f1a; /* Cor do texto sobre o fundo primário */
+  --text-over-primary-dark: #e6e9f0; /* Cor do texto sobre fundo primário escuro */
+  --text-over-primary-light: #0a0f1a; /* Cor do texto sobre fundo primário claro */
+  --text-over-success: #0a0f1a; /* Cor do texto sobre fundo de sucesso */
+  --text-over-warning: #0a0f1a; /* Cor do texto sobre fundo de aviso */
+  --text-over-error: #e6e9f0; /* Cor do texto sobre fundo de erro */
+  --text-over-info: #0a0f1a; /* Cor do texto sobre fundo de informação */
+
+  --text-default: #e6e9f0; /* Cor padrão do texto */
+  --text-muted: #aab3cc; /* Cor de texto secundário ou desabilitado */
+
+  --disabled: #555f7d; /* Cor usada para elementos desabilitados */
+  --text-disabled: #aab3cc; /* Cor do texto de elementos desabilitados */
+}
