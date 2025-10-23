@@ -1,5 +1,11 @@
+// Importo os estilos específicos deste componente
+import type { HomeProps } from "../../pages/home";
 import styles from "./styles.module.css";
 
-export function CountDown() {
-  return <div className={styles.container}>00:00</div>;
+// Componente que vai mostrar o timer do Pomodoro
+export function CountDown({ state }: HomeProps) {
+  // Por enquanto só mostra 00:00, mas depois vai mostrar o tempo real
+  return (
+    <div className={styles.container}>{state.formattedSecondsRemaining}</div>
+  );
 }
