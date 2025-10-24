@@ -1,10 +1,11 @@
 // Importo os estilos específicos deste componente
-import type { HomeProps } from "../../pages/home";
+import { useTaskContext } from "../../contexts/TaskContext/useTaskContext";
 import styles from "./styles.module.css";
 
 // Componente que vai mostrar o timer do Pomodoro
-export function CountDown({ state }: HomeProps) {
-  // Por enquanto só mostra 00:00, mas depois vai mostrar o tempo real
+export function CountDown() {
+  const { state } = useTaskContext();
+  // Mostra o tempo formatado do contexto
   return (
     <div className={styles.container}>{state.formattedSecondsRemaining}</div>
   );
