@@ -1,5 +1,6 @@
 // Preciso importar o TaskModel para usar na lista de tarefas
-import { TaskModel } from "./taskModel";
+
+import type { TaskModel } from "./TaskModel";
 
 // Modelo que vai controlar todo o estado do meu app Pomodoro
 export type TaskStateModel = {

@@ -1,23 +1,38 @@
 // Estilos das bolinhas de ciclo
+import { useTaskContext } from "../../contexts/TaskContext/useTaskContext";
+import { getNextCycle } from "../../utils/getNextCycle";
+import { getNextCycleType } from "../../utils/getNextCycleType";
 import styles from "./styles.module.css";
 
 // Componente que mostra o progresso dos ciclos Pomodoro
 export function Cycles() {
+  const { state } = useTaskContext();
+
+  const cycleStep = Array.from({ length: state.currentCycle });
+
+  const cycleDescriptionMap = {
+    workTime: "Foco",
+    shortBreakTime: "Descanso curto",
+    longBreakTime: "Descanso longo",
+  };
+
   return (
     <div className={styles.cycles}>
-      <span>Ciclos:</span>  {/* Label dos ciclos */}
-      
-      {/* Container das bolinhas que representam cada ciclo */}
+      <span>Ciclos:</span>
+
       <div className={styles.cycleDots}>
-        {/* Padrão Pomodoro: 4 trabalhos + 3 pausas curtas + 1 pausa longa */}
-        <span className={`${styles.cycleDot} ${styles.workTime}`}></span>        {/* Trabalho 1 */}
-        <span className={`${styles.cycleDot} ${styles.shortBreakTime}`}></span>  {/* Pausa curta 1 */}
-        <span className={`${styles.cycleDot} ${styles.workTime}`}></span>        {/* Trabalho 2 */}
-        <span className={`${styles.cycleDot} ${styles.shortBreakTime}`}></span>  {/* Pausa curta 2 */}
-        <span className={`${styles.cycleDot} ${styles.workTime}`}></span>        {/* Trabalho 3 */}
-        <span className={`${styles.cycleDot} ${styles.shortBreakTime}`}></span>  {/* Pausa curta 3 */}
-        <span className={`${styles.cycleDot} ${styles.workTime}`}></span>        {/* Trabalho 4 */}
-        <span className={`${styles.cycleDot} ${styles.longBreakTime}`}></span>   {/* Pausa longa */}
+        {cycleStep.map((_, index) => {
+          const nextCycle = getNextCycle(index);
+          const nextCycleType = getNextCycleType(nextCycle);
+          return (
+            <span
+              key={`${nextCycleType}_${nextCycle}`}
+              className={`${styles.cycleDot} ${styles[nextCycleType]}`}
+              aria-label={`Indicador de ciclo de ${cycleDescriptionMap[nextCycleType]}`}
+              title={`Indicador de ciclo de ${cycleDescriptionMap[nextCycleType]}`}
+            ></span>
+          );
+        })}
       </div>
     </div>
   );
