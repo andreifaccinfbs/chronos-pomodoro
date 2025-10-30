@@ -1,3 +1,25 @@
+/*
+🎨 Estrutura de cores do projeto
+
+🔹 Cores Dinâmicas (mudam entre os temas claro/escuro)
+   - Essas cores se adaptam ao tema escolhido pelo usuário.
+   - Exemplo: `gray-900` será escuro no modo dark e claro no modo light.
+
+🔸 Cores Fixas (não mudam entre os temas)
+   - São usadas para botões, alertas e destaques.
+   - Exemplo: `primary`, `success`, `error` sempre terão os mesmos tons.
+
+📝 Estrutura:
+   - Fundo geral: `gray-900` (dinâmico)
+   - Cards/caixas: `gray-800` (dinâmico)
+   - Bordas/separadores: `gray-700` ou `gray-600` (dinâmico)
+   - Texto principal: `--text-default` (dinâmico)
+   - Texto secundário/placeholders: `--text-muted` (dinâmico)
+   - Hover/ativo: `gray-700` e `gray-600` ou conforme preferir (dinâmico)
+
+🚨 Atenção aos comentários! Eles descrevem cada categoria de cores e sua função.
+*/
+
 :root {
   /* 🎭 Tons de Cinza (cores dinâmicas que mudam entre claro/escuro) */
   --gray-100: #e6e9f0; /* Cinza mais claro (usado para fundos no modo escuro) */
@@ -55,6 +77,7 @@
   --toastify-color-progress-dark: var(--primary);
 }
 
+/* 🌞 Modo Claro - Inverte algumas cores para manter o contraste */
 :root[data-theme="light"] {
   /* Tons de Cinza Invertidos */
   --gray-100: #0a0f1a; /* Cinza mais escuro */

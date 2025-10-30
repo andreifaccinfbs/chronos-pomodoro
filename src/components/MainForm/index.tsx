@@ -11,12 +11,14 @@ import { getNextCycle } from "../../utils/getNextCycle";
 import { getNextCycleType } from "../../utils/getNextCycleType";
 import { TaskActionTypes } from "../../contexts/TaskContext/taskActions";
 import { Tips } from "../tips";
+import { showMessage } from "../../adapters/showMessage";
 
 // Formulário principal da aplicação
 export function MainForm() {
   const { state, dispatch } = useTaskContext();
   //const [taskName, setTaskName] = useState("");
   const taskNameInput = useRef<HTMLInputElement>(null);
+  const lastTaskName = state.tasks[state.tasks.length - 1]?.name || "";
 
   // ciclos
   const nextCycle = getNextCycle(state.currentCycle);
@@ -24,12 +26,13 @@ export function MainForm() {
 
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault(); // Evita que o formulário seja enviado
+    showMessage.dismiss();
 
     if (taskNameInput.current === null) return;
 
     const taskName = taskNameInput.current.value.trim();
     if (!taskName) {
-      alert("Digite  o nome da tarefa!");
+      showMessage.warn("Digite  o nome da tarefa!");
       return;
     }
     const newTask: TaskModel = {
@@ -48,6 +51,8 @@ export function MainForm() {
     });
   }
   function handleInterruptTask() {
+    showMessage.dismiss();
+    showMessage.error("Tarefa interrompida!");
     dispatch({ type: TaskActionTypes.INTERRUPT_TASK });
   }
 
@@ -61,6 +66,7 @@ export function MainForm() {
           placeholder="Digite Algo" // Texto de exemplo
           ref={taskNameInput}
           disabled={!!state.activeTask} // Campo desabilitado por enquanto
+          defaultValue={lastTaskName} // Valor padrão}
         />
       </div>
       {/* Texto informativo (temporário) */}
