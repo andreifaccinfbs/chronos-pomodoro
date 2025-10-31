@@ -5,6 +5,7 @@ import { AboutPomodoro } from "../../pages/AboutPomodoro";
 import { useEffect } from "react";
 import { History } from "../../pages/History";
 import { Settings } from "../../pages/Settings";
+import { Star } from "lucide-react";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -24,8 +25,8 @@ export function MainRouter() {
         <Route path="/about-pomodoro/" element={<AboutPomodoro />} />
         <Route path="/settings/" element={<Settings />} />
         <Route path="/history/" element={<History />} />
-
         <Route path="*" element={<NotFound />} />
+        <Route path="https://flexbeesistemas.com.br/" element={<Star />} />
       </Routes>
       <ScrollToTop />
     </BrowserRouter>

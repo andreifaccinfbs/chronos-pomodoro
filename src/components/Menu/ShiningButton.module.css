@@ -1,0 +1,38 @@
+.menuLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  border: 2px solid #307e11; /* cor inicial da borda */
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Ícone levemente maior */
+.starIcon {
+  width: 3rem;
+  height: 3rem;
+  color: #0fac0f; /* cor do ícone */
+}
+
+/* ✨ Efeito de pulsação na borda (ativo só nos primeiros 5s) */
+.pulseBorder {
+  animation: pulseBorderAnim 1s ease-in-out infinite;
+}
+
+@keyframes pulseBorderAnim {
+  0% {
+    box-shadow: 0 0 4px #d8d50f, 0 0 8px #d8d50f, 0 0 12px #d8d50f;
+    border-color: #d8d50f;
+  }
+  50% {
+    box-shadow: 0 0 12px #df0202, 0 0 20px #df0202, 0 0 28px #df0202;
+    border-color: #df0202;
+  }
+  100% {
+    box-shadow: 0 0 4px #1901ec, 0 0 8px #1901ec, 0 0 12px #1901ec;
+    border-color: #1901ec;
+  }
+}

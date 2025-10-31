@@ -8,6 +8,7 @@ import {
 import styles from "./styles.module.css";
 import { useState, useEffect } from "react";
 import { RouterLink } from "../RouterLink";
+import { ShiningButton } from "./ShiningButton";
 
 type AvailableThemes = "dark" | "light"; // Digo que o tipo da minha variavel vai ser dark ou light
 
@@ -42,6 +43,8 @@ export function Menu() {
     localStorage.setItem("theme", theme);
   }, [theme]); // executa apenas quando o valor de theme muda
 
+  const currentPath = window.location.pathname;
+  const isHomePage = currentPath === "/" || currentPath === "home";
   return (
     <nav className={styles.menu}>
       <RouterLink
@@ -68,6 +71,13 @@ export function Menu() {
       >
         <SettingsIcon />
       </RouterLink>
+      <ShiningButton
+        href="https://flexbeesistemas.com.br/"
+        title="Flexbee Sistemas"
+        ariaLabel="Ir para o site da empresa"
+        shouldShine={isHomePage}
+      />
+
       <RouterLink
         className={styles.menuLink}
         href="#"
